@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Register | Hyper - Responsive Bootstrap 4 Admin Dashboard</title>
+    <title>Register | {{config('app.name') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
     <meta content="Coderthemes" name="author" />
@@ -28,7 +28,16 @@
                 <!-- title-->
                 <h4 class="mt-0">Free Sign Up</h4>
                 <p class="text-muted mb-4">Don't have an account? Create your account, it takes less than a minute</p>
-
+ 
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <!-- form -->
                 <form action="{{ route('registering') }}" method="post">
                     @csrf
@@ -59,6 +68,16 @@
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input class="form-control" type="password" required id="password" placeholder="Enter your password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="applicant" name="role" class="custom-control-input" value="1" checked>
+                            <label class="custom-control-label" for="applicant">Applicant</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="hr" name="role" class="custom-control-input" value="2">
+                            <label class="custom-control-label" for="hr">HR</label>
+                        </div>
                     </div>
                     <div class="form-group">
                         <div class="custom-control custom-checkbox">
