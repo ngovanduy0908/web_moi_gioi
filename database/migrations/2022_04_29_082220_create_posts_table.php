@@ -24,7 +24,7 @@ class CreatePostsTable extends Migration
             $table->boolean('is_parttime');
             $table->integer('min_salary');
             $table->integer('max_salary');
-            $table->integer('currency-salary')->default(1);
+            $table->integer('currency_salary')->default(1);
             $table->text('requirement')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();

@@ -2,4 +2,5 @@ a = php artisan $*
 amm = php artisan make:migration $*
 ide = php artisan ide-helper:models "App\Models\$*" -W
 amrq = php artisan make:request $*
-am=php artisan make:$*
+amk=php artisan make:$*
+am=php artisan migrate

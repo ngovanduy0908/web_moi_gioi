@@ -26,7 +26,7 @@ class AuthController extends Controller
     {
         $data = Socialite::driver($provider)->user();
 
-        $user       = User::query()
+        $user = User::query()
             ->where('email', $data->getEmail())
             ->first();
         $checkExist = true;
